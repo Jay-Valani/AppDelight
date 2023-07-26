@@ -1,4 +1,4 @@
-export { FontSize, ViewDimensions } from './fontSize';
+export { FontSize, ViewDimensions } from './FontSize';
 export {
     scale,
     moderateScale,
@@ -6,5 +6,5 @@ export {
     verticalScale,
     isIpad,
     isSmallDevice,
-} from './scale';
-export { COLORS } from './colors';
+} from './Scale';
+export { COLORS } from './Colors';

@@ -8,11 +8,12 @@
 
 /* Begin PBXBuildFile section */
 		00E356F31AD99517003FC87E /* AppDelightTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 00E356F21AD99517003FC87E /* AppDelightTests.m */; };
+		09CC60DEB539B52AB251FC2F /* libPods-AppDelight-AppDelightTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 776BC18880356B7367CEC656 /* libPods-AppDelight-AppDelightTests.a */; };
+		0F54666B50B09C4B074D24A5 /* libPods-AppDelight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = AB34686E2BDAD6FDBF236CA5 /* libPods-AppDelight.a */; };
 		13B07FBC1A68108700A75B9A /* AppDelegate.mm in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB01A68108700A75B9A /* AppDelegate.mm */; };
 		13B07FBF1A68108700A75B9A /* Images.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 13B07FB51A68108700A75B9A /* Images.xcassets */; };
 		13B07FC11A68108700A75B9A /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 13B07FB71A68108700A75B9A /* main.m */; };
 		81AB9BB82411601600AC10FF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */; };
-		875AC1E4DED401C911F8DAF1 /* libPods-AppDelight.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 59AD0205F31C749A3289F104 /* libPods-AppDelight.a */; };
 		956555F129CABC700056BC89 /* OpenSans-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 956555E629CABC700056BC89 /* OpenSans-Bold.ttf */; };
 		956555F229CABC700056BC89 /* OpenSans-BoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 956555E729CABC700056BC89 /* OpenSans-BoldItalic.ttf */; };
 		956555F329CABC700056BC89 /* OpenSans-ExtraBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 956555E829CABC700056BC89 /* OpenSans-ExtraBoldItalic.ttf */; };
@@ -24,7 +25,6 @@
 		956555F929CABC700056BC89 /* OpenSans-SemiBold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 956555EE29CABC700056BC89 /* OpenSans-SemiBold.ttf */; };
 		956555FA29CABC700056BC89 /* OpenSans-LightItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 956555EF29CABC700056BC89 /* OpenSans-LightItalic.ttf */; };
 		956555FB29CABC700056BC89 /* OpenSans-SemiBoldItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 956555F029CABC700056BC89 /* OpenSans-SemiBoldItalic.ttf */; };
-		DA3B7C32D083445C5277E410 /* libPods-AppDelight-AppDelightTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 428BD780F55D8F13A45DE6AA /* libPods-AppDelight-AppDelightTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,16 +41,15 @@
 		00E356EE1AD99517003FC87E /* AppDelightTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AppDelightTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		00E356F11AD99517003FC87E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		00E356F21AD99517003FC87E /* AppDelightTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelightTests.m; sourceTree = "<group>"; };
-		0FE33C62F343DF005F7F4F4D /* Pods-AppDelight.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppDelight.debug.xcconfig"; path = "Target Support Files/Pods-AppDelight/Pods-AppDelight.debug.xcconfig"; sourceTree = "<group>"; };
 		13B07F961A680F5B00A75B9A /* AppDelight.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AppDelight.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		13B07FAF1A68108700A75B9A /* AppDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = AppDelegate.h; path = AppDelight/AppDelegate.h; sourceTree = "<group>"; };
 		13B07FB01A68108700A75B9A /* AppDelegate.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; name = AppDelegate.mm; path = AppDelight/AppDelegate.mm; sourceTree = "<group>"; };
 		13B07FB51A68108700A75B9A /* Images.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; name = Images.xcassets; path = AppDelight/Images.xcassets; sourceTree = "<group>"; };
 		13B07FB61A68108700A75B9A /* Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; name = Info.plist; path = AppDelight/Info.plist; sourceTree = "<group>"; };
 		13B07FB71A68108700A75B9A /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = main.m; path = AppDelight/main.m; sourceTree = "<group>"; };
-		30D63CA798A46D110613EDF4 /* Pods-AppDelight-AppDelightTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppDelight-AppDelightTests.release.xcconfig"; path = "Target Support Files/Pods-AppDelight-AppDelightTests/Pods-AppDelight-AppDelightTests.release.xcconfig"; sourceTree = "<group>"; };
-		428BD780F55D8F13A45DE6AA /* libPods-AppDelight-AppDelightTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AppDelight-AppDelightTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		59AD0205F31C749A3289F104 /* libPods-AppDelight.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AppDelight.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		20D96B747739370B45ABBBED /* Pods-AppDelight-AppDelightTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppDelight-AppDelightTests.debug.xcconfig"; path = "Target Support Files/Pods-AppDelight-AppDelightTests/Pods-AppDelight-AppDelightTests.debug.xcconfig"; sourceTree = "<group>"; };
+		776BC18880356B7367CEC656 /* libPods-AppDelight-AppDelightTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AppDelight-AppDelightTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		816585F2460EC2F16362F19E /* Pods-AppDelight.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppDelight.release.xcconfig"; path = "Target Support Files/Pods-AppDelight/Pods-AppDelight.release.xcconfig"; sourceTree = "<group>"; };
 		81AB9BB72411601600AC10FF /* LaunchScreen.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; name = LaunchScreen.storyboard; path = AppDelight/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		956555E629CABC700056BC89 /* OpenSans-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-Bold.ttf"; path = "AppDelight/Fonts/Open_Sans/OpenSans-Bold.ttf"; sourceTree = "<group>"; };
 		956555E729CABC700056BC89 /* OpenSans-BoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-BoldItalic.ttf"; path = "AppDelight/Fonts/Open_Sans/OpenSans-BoldItalic.ttf"; sourceTree = "<group>"; };
@@ -63,8 +62,9 @@
 		956555EE29CABC700056BC89 /* OpenSans-SemiBold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-SemiBold.ttf"; path = "AppDelight/Fonts/Open_Sans/OpenSans-SemiBold.ttf"; sourceTree = "<group>"; };
 		956555EF29CABC700056BC89 /* OpenSans-LightItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-LightItalic.ttf"; path = "AppDelight/Fonts/Open_Sans/OpenSans-LightItalic.ttf"; sourceTree = "<group>"; };
 		956555F029CABC700056BC89 /* OpenSans-SemiBoldItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; name = "OpenSans-SemiBoldItalic.ttf"; path = "AppDelight/Fonts/Open_Sans/OpenSans-SemiBoldItalic.ttf"; sourceTree = "<group>"; };
-		DE3FA11343E519770E204C5F /* Pods-AppDelight.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppDelight.release.xcconfig"; path = "Target Support Files/Pods-AppDelight/Pods-AppDelight.release.xcconfig"; sourceTree = "<group>"; };
-		E32D06322A2CB68FC8739B28 /* Pods-AppDelight-AppDelightTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppDelight-AppDelightTests.debug.xcconfig"; path = "Target Support Files/Pods-AppDelight-AppDelightTests/Pods-AppDelight-AppDelightTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AB34686E2BDAD6FDBF236CA5 /* libPods-AppDelight.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-AppDelight.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		C236D00BEA4AD6226D523732 /* Pods-AppDelight.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppDelight.debug.xcconfig"; path = "Target Support Files/Pods-AppDelight/Pods-AppDelight.debug.xcconfig"; sourceTree = "<group>"; };
+		D52E14B630F4C10C7B63EE06 /* Pods-AppDelight-AppDelightTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-AppDelight-AppDelightTests.release.xcconfig"; path = "Target Support Files/Pods-AppDelight-AppDelightTests/Pods-AppDelight-AppDelightTests.release.xcconfig"; sourceTree = "<group>"; };
 		ED297162215061F000B7C4FE /* JavaScriptCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = JavaScriptCore.framework; path = System/Library/Frameworks/JavaScriptCore.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
@@ -73,7 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				DA3B7C32D083445C5277E410 /* libPods-AppDelight-AppDelightTests.a in Frameworks */,
+				09CC60DEB539B52AB251FC2F /* libPods-AppDelight-AppDelightTests.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -81,7 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				875AC1E4DED401C911F8DAF1 /* libPods-AppDelight.a in Frameworks */,
+				0F54666B50B09C4B074D24A5 /* libPods-AppDelight.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -122,8 +122,8 @@
 			isa = PBXGroup;
 			children = (
 				ED297162215061F000B7C4FE /* JavaScriptCore.framework */,
-				59AD0205F31C749A3289F104 /* libPods-AppDelight.a */,
-				428BD780F55D8F13A45DE6AA /* libPods-AppDelight-AppDelightTests.a */,
+				AB34686E2BDAD6FDBF236CA5 /* libPods-AppDelight.a */,
+				776BC18880356B7367CEC656 /* libPods-AppDelight-AppDelightTests.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -173,10 +173,10 @@
 		BBD78D7AC51CEA395F1C20DB /* Pods */ = {
 			isa = PBXGroup;
 			children = (
-				0FE33C62F343DF005F7F4F4D /* Pods-AppDelight.debug.xcconfig */,
-				DE3FA11343E519770E204C5F /* Pods-AppDelight.release.xcconfig */,
-				E32D06322A2CB68FC8739B28 /* Pods-AppDelight-AppDelightTests.debug.xcconfig */,
-				30D63CA798A46D110613EDF4 /* Pods-AppDelight-AppDelightTests.release.xcconfig */,
+				C236D00BEA4AD6226D523732 /* Pods-AppDelight.debug.xcconfig */,
+				816585F2460EC2F16362F19E /* Pods-AppDelight.release.xcconfig */,
+				20D96B747739370B45ABBBED /* Pods-AppDelight-AppDelightTests.debug.xcconfig */,
+				D52E14B630F4C10C7B63EE06 /* Pods-AppDelight-AppDelightTests.release.xcconfig */,
 			);
 			path = Pods;
 			sourceTree = "<group>";
@@ -188,12 +188,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 00E357021AD99517003FC87E /* Build configuration list for PBXNativeTarget "AppDelightTests" */;
 			buildPhases = (
-				C33E661BAC8663681C10E917 /* [CP] Check Pods Manifest.lock */,
+				AFDB7133B0F287B0BBD6969C /* [CP] Check Pods Manifest.lock */,
 				00E356EA1AD99517003FC87E /* Sources */,
 				00E356EB1AD99517003FC87E /* Frameworks */,
 				00E356EC1AD99517003FC87E /* Resources */,
-				F61BCBC94CC5904C4AB2DB14 /* [CP] Embed Pods Frameworks */,
-				F527EEC5443570D6733E7C25 /* [CP] Copy Pods Resources */,
+				35866A7C2FE2E634A12F22C1 /* [CP] Embed Pods Frameworks */,
+				BE98B2852E948EA9D212153D /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -209,14 +209,14 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 13B07F931A680F5B00A75B9A /* Build configuration list for PBXNativeTarget "AppDelight" */;
 			buildPhases = (
-				5EC767BF03542C55F008DAB2 /* [CP] Check Pods Manifest.lock */,
+				7A359F148D1C0C83B3F9032B /* [CP] Check Pods Manifest.lock */,
 				FD10A7F022414F080027D42C /* Start Packager */,
 				13B07F871A680F5B00A75B9A /* Sources */,
 				13B07F8C1A680F5B00A75B9A /* Frameworks */,
 				13B07F8E1A680F5B00A75B9A /* Resources */,
 				00DD1BFF1BD5951E006B06BC /* Bundle React Native code and images */,
-				F17DE57CF56391C9150D73E5 /* [CP] Embed Pods Frameworks */,
-				C00F0B34F093B7006DCA0478 /* [CP] Copy Pods Resources */,
+				0706AE1DBDC6610CEF152683 /* [CP] Embed Pods Frameworks */,
+				70DCCEF3B36536BE724BFD4F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -310,7 +310,58 @@
 			shellPath = /bin/sh;
 			shellScript = "set -e\n\nWITH_ENVIRONMENT=\"../node_modules/react-native/scripts/xcode/with-environment.sh\"\nREACT_NATIVE_XCODE=\"../node_modules/react-native/scripts/react-native-xcode.sh\"\n\n/bin/sh -c \"$WITH_ENVIRONMENT $REACT_NATIVE_XCODE\"\n";
 		};
-		5EC767BF03542C55F008DAB2 /* [CP] Check Pods Manifest.lock */ = {
+		0706AE1DBDC6610CEF152683 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AppDelight/Pods-AppDelight-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AppDelight/Pods-AppDelight-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AppDelight/Pods-AppDelight-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		35866A7C2FE2E634A12F22C1 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AppDelight-AppDelightTests/Pods-AppDelight-AppDelightTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AppDelight-AppDelightTests/Pods-AppDelight-AppDelightTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AppDelight-AppDelightTests/Pods-AppDelight-AppDelightTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		70DCCEF3B36536BE724BFD4F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AppDelight/Pods-AppDelight-resources-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-AppDelight/Pods-AppDelight-resources-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AppDelight/Pods-AppDelight-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		7A359F148D1C0C83B3F9032B /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -332,24 +383,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		C00F0B34F093B7006DCA0478 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AppDelight/Pods-AppDelight-resources-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AppDelight/Pods-AppDelight-resources-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AppDelight/Pods-AppDelight-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C33E661BAC8663681C10E917 /* [CP] Check Pods Manifest.lock */ = {
+		AFDB7133B0F287B0BBD6969C /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -371,24 +405,7 @@
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
 			showEnvVarsInLog = 0;
 		};
-		F17DE57CF56391C9150D73E5 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AppDelight/Pods-AppDelight-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AppDelight/Pods-AppDelight-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AppDelight/Pods-AppDelight-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F527EEC5443570D6733E7C25 /* [CP] Copy Pods Resources */ = {
+		BE98B2852E948EA9D212153D /* [CP] Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -403,23 +420,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AppDelight-AppDelightTests/Pods-AppDelight-AppDelightTests-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		F61BCBC94CC5904C4AB2DB14 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AppDelight-AppDelightTests/Pods-AppDelight-AppDelightTests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-AppDelight-AppDelightTests/Pods-AppDelight-AppDelightTests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-AppDelight-AppDelightTests/Pods-AppDelight-AppDelightTests-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		FD10A7F022414F080027D42C /* Start Packager */ = {
@@ -474,7 +474,7 @@
 /* Begin XCBuildConfiguration section */
 		00E356F61AD99517003FC87E /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = E32D06322A2CB68FC8739B28 /* Pods-AppDelight-AppDelightTests.debug.xcconfig */;
+			baseConfigurationReference = 20D96B747739370B45ABBBED /* Pods-AppDelight-AppDelightTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				GCC_PREPROCESSOR_DEFINITIONS = (
@@ -501,7 +501,7 @@
 		};
 		00E356F71AD99517003FC87E /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 30D63CA798A46D110613EDF4 /* Pods-AppDelight-AppDelightTests.release.xcconfig */;
+			baseConfigurationReference = D52E14B630F4C10C7B63EE06 /* Pods-AppDelight-AppDelightTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
@@ -525,13 +525,14 @@
 		};
 		13B07F941A680F5B00A75B9A /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 0FE33C62F343DF005F7F4F4D /* Pods-AppDelight.debug.xcconfig */;
+			baseConfigurationReference = C236D00BEA4AD6226D523732 /* Pods-AppDelight.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = AppDelight/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -551,12 +552,13 @@
 		};
 		13B07F951A680F5B00A75B9A /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = DE3FA11343E519770E204C5F /* Pods-AppDelight.release.xcconfig */;
+			baseConfigurationReference = 816585F2460EC2F16362F19E /* Pods-AppDelight.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				INFOPLIST_FILE = AppDelight/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.4;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

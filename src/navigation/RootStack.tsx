@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import { UserLogin, UserSignup } from '../screens';
+import UserLogin from '../screens/auth-screen/user-login/UserLogin';
+import UserSignup from '../screens/auth-screen/user-signup/UserSignup';
+
 
 export type LoginStackScreens = {
     user_login: undefined;
