@@ -4,7 +4,6 @@ import UserLogin from '../screens/auth-screen/user-login/UserLogin';
 import UserSignup from '../screens/auth-screen/user-signup/UserSignup';
 import AuthScreen from '../screens/auth-screen/auth-screen/AuthScreen';
 
-
 export type LoginStackScreens = {
     user_login: undefined;
     user_signup: undefined
