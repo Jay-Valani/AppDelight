@@ -3,8 +3,9 @@ import React, { useEffect, useRef } from 'react'
 import { styles } from './AuthScreen.styles'
 import CustomButton from '../../../components/custom-button/CustomButton'
 import { all_icons } from '../../../assets/images';
+import { COLORS } from '../../../libs/Colors';
 
-export default function AuthScreen() {
+export default function AuthScreen(props: any) {
   const fadeIN = useRef(new Animated.Value(0)).current;
   useEffect(() => {
     fadeIn()
@@ -13,10 +14,19 @@ export default function AuthScreen() {
   const fadeIn = () => {
     Animated.timing(fadeIN, {
       toValue: 1,
-      duration: 3000,
+      duration: 5000,
       useNativeDriver: true,
     }).start();
   };
+
+  const onSignupBtxClick = () => {
+    props.navigation.navigate("user_signup")
+  }
+
+  const onLoginBtxClick = () => {
+    props.navigation.navigate("user_login")
+  }
+
 
   return (
     <SafeAreaView style={styles.container}>
@@ -27,11 +37,20 @@ export default function AuthScreen() {
       <View style={styles.authButtonContainer}>
 
         <Animated.View style={[styles.signupBtnView, { opacity: fadeIN }]}>
-          <CustomButton label="Signup" />
+          <CustomButton
+            label="Register"
+            btnTxtColor={COLORS.black}
+            btnBackgroundColor={COLORS.gray}
+            onClick={() => onSignupBtxClick()}
+          />
         </Animated.View>
 
         <Animated.View style={[styles.loginBtnView, { opacity: fadeIN }]}>
-          <CustomButton label="Login" />
+          <CustomButton
+            label="Login"
+            btnTxtColor={COLORS.white}
+            btnBackgroundColor={COLORS.black}
+            onClick={() => onLoginBtxClick()} />
         </Animated.View>
       </View>
 
