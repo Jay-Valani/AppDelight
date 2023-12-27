@@ -46,7 +46,7 @@ export const styles = StyleSheet.create({
         fontFamily: FONTS.OpenSansRegular,
         letterSpacing: -0.41,
         marginHorizontal: scale(24),
-        color: COLORS.gray,
+        // color: COLORS.gray,
         marginTop: verticalScale(10),
         textAlign: "right"
     },

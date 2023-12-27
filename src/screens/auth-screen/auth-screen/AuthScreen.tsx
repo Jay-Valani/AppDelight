@@ -39,7 +39,7 @@ export default function AuthScreen(props: any) {
         <Animated.View style={[styles.signupBtnView, { opacity: fadeIN }]}>
           <CustomButton
             label="Register"
-            btnTxtColor={COLORS.black}
+            btnTxtColor={COLORS.white}
             btnBackgroundColor={COLORS.gray}
             onClick={() => onSignupBtxClick()}
           />
