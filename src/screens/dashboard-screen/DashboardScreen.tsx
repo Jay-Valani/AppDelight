@@ -13,7 +13,7 @@ import React, {useEffect, useState} from 'react';
 import {styles} from './DashboardScreen.styles';
 import {all_icons} from '../../assets/images';
 import {COLORS} from '../../libs/Colors';
-import firestore from '@react-native-firebase/firestore';
+import firestore, {firebase} from '@react-native-firebase/firestore';
 
 export default function DashboardScreen(props: any) {
   const [userListArray, setUserListArray] = useState([]);
@@ -41,23 +41,15 @@ export default function DashboardScreen(props: any) {
 
   const selectedUserList = (item: any) => {
     const selectedId = userListArray.findIndex((x: any) => {
+      console.log("ccccccc",x?.id , item.id);
       x?.id === item.id;
     });
-    if (selectedId == -1) {
-      // selectedArray.push(item);
-      if (selectedArray.length === 0) {
+    if (selectedId === -1) {
         selectedArray.push(item);
-      } else {
-        selectedArray.map((obj: any) => {
-          if (obj.id != item.id) {
-            selectedArray.push(item);
-          }
-        });
-      }
-      console.log('!!!!!!!!!!!', selectedArray);
     } else {
       handleRemoveItem(item);
     }
+    console.log('@@@@@@@@@@@@', selectedArray);
   };
 
   const handleRemoveItem = (item: any) => {

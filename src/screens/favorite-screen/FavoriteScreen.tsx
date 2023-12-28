@@ -16,17 +16,32 @@ import {all_icons} from '../../assets/images';
 
 export default function FavoriteScreen(props: any) {
   const [modalVisible, setModalVisible] = useState(false);
+  const [storeId, setStoreID] = useState('')
   const route = useRoute();
   const userFavoriteItem = route.params?.userData;
 
   useEffect(() => {
-    console.log('$$$$$$$$$$$', route.params);
+    console.log('$$$$$$$$$$$', userFavoriteItem);
   }, []);
+
+  const removeFavoriteItem = () => {
+    console.log("GGGGGGGGGGG",storeId.id);
+    
+    userFavoriteItem.map((obj:any) => {
+      console.log("objjjj",obj.id === storeId.id);
+      if(obj.id === storeId.id) {
+        userFavoriteItem.pop(storeId)
+        setStoreID('')
+        setModalVisible(false)
+      }
+    })
+    
+  }
 
   const moreOptionModal = () => {
     return (
       <View style={{paddingBottom: 10}}>
-        <TouchableOpacity onPress={() => {}}>
+        <TouchableOpacity onPress={() => removeFavoriteItem()}>
           <Text style={styles.modalTxt}>Remove from favorite</Text>
         </TouchableOpacity>
       </View>
@@ -34,6 +49,8 @@ export default function FavoriteScreen(props: any) {
   };
 
   const renderFavoriteItem = ({item}: any) => {
+    console.log("item^^^^^^^^",item);
+    
     return (
       <View style={styles.productContainer}>
         <Image
@@ -55,6 +72,7 @@ export default function FavoriteScreen(props: any) {
         <TouchableOpacity
           onPress={() => {
             setModalVisible(true);
+            setStoreID(item)
           }}>
           <Image source={all_icons.more} style={styles.moreIcon} />
         </TouchableOpacity>
@@ -74,7 +92,6 @@ export default function FavoriteScreen(props: any) {
         </View>
       ) : (
         <View style={styles.footerContainer}>
-          {/*  */}
           <FlatList
             data={userFavoriteItem}
             keyExtractor={(item: any) => item.id}
