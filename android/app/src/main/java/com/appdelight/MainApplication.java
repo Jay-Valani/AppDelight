@@ -12,6 +12,10 @@ import com.facebook.soloader.SoLoader;
 import com.appdelight.newarchitecture.MainApplicationReactNativeHost;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
+import io.invertase.firebase.auth.ReactNativeFirebaseAuthPackage;
+import io.invertase.firebase.firestore.ReactNativeFirebaseFirestorePackage;
+import io.invertase.firebase.database.ReactNativeFirebaseDatabasePackage;
+
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -28,6 +32,9 @@ public class MainApplication extends Application implements ReactApplication {
           List<ReactPackage> packages = new PackageList(this).getPackages();
           // Packages that cannot be autolinked yet can be added manually here, for example:
           // packages.add(new MyReactNativePackage());
+          packages.add(new ReactNativeFirebaseAuthPackage());
+          packages.add(new ReactNativeFirebaseFirestorePackage());
+          packages.add(new ReactNativeFirebaseDatabasePackage());
           return packages;
         }
 

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "968878102803",
+    "project_id": "appdelight-36cf8",
+    "storage_bucket": "appdelight-36cf8.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:968878102803:android:4270e9a942339cf5f8e2e6",
+        "android_client_info": {
+          "package_name": "com.appdelight"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAOVQij3t7k8ap78ZJkBZxUhgltMWnYFUc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

@@ -4,6 +4,7 @@ import {
   FlatList,
   Image,
   SafeAreaView,
+  StatusBar,
   Text,
   TouchableOpacity,
   View,
@@ -16,8 +17,9 @@ import {COLORS} from '../../libs/Colors';
 export default function DashboardScreen(props: any) {
   const [userListArray, setUserListArray] = useState([]);
   const [loader, setLoader] = useState(false);
-  const [page, setPage] = useState(10);
-  
+  const [favorite, setFavorite] = useState('');
+  const [selectedFavoriteUser, setSelectedFavoriteUser] = useState([])
+
   useEffect(() => {
     userListAPi();
   }, []);
@@ -27,60 +29,64 @@ export default function DashboardScreen(props: any) {
       .then(response => response.json())
       .then(responseJson => {
         setLoader(true);
-        console.log('Response json', responseJson);
         setUserListArray(responseJson);
-        console.log('Response json in array', userListArray);
         setLoader(false);
       })
       .catch(error => {
         Alert.alert('Error!', error);
       });
   };
-  
-  const handleLoadMore = () => {
-    console.log("Hellooooo");
-    
-    let userUpdate: any = userListArray.slice(5,10)
-    userListArray.length <= page && setPage(page + 10)
-    userListArray.concat(userUpdate)
-    console.log("userList array",userUpdate);
-    
-  };
+
+  const selectedUserList = (item: any) => {
+    setSelectedFavoriteUser(item)
+  }
 
   const renderUserList = ({item}: any) => {
     return (
       <View style={styles.listContainer}>
-        <Image source={{uri: item.image}} style={styles.productImage} />
+        <View style={styles.imageComponent}>
+          <Image source={{uri: item.image}} style={styles.productImage} />
+          <TouchableOpacity
+            onPress={() => {
+              selectedUserList(item)
+            }}>
+            <Image source={item.id === favorite ? all_icons.favorite : all_icons.unfavorite} style={styles.favoriteIcon} />
+          </TouchableOpacity>
+        </View>
         <Text style={styles.productTitle}>{item.title}</Text>
-        <Text style={styles.productDescription}>{item.description}</Text>
-        <Text style={styles.productPrice}>{item.price}</Text>
-        <Text style={styles.productRating}>{item.rating.rate}</Text>
+        <View style={styles.productComponents}>
+          <Text style={styles.productPrice}>Price:- {item.price}</Text>
+          <Text style={styles.productRating}>rating:- {item.rating.rate}</Text>
+        </View>
       </View>
     );
   };
 
   return (
-    <SafeAreaView style={styles.container}>
-      <View style={styles.headerView}>
-        <TouchableOpacity>
-          <Image source={all_icons.menu} style={styles.menu} />
-        </TouchableOpacity>
-        <Text style={styles.headerTxt}>App Delight</Text>
-      </View>
-      <View style={styles.footerContainer}>
-        {loader ? (
-          <ActivityIndicator size={'large'} color={COLORS.gray} />
-        ) : (
-          <FlatList
-            data={userListArray.slice(0, 5)}
-            keyExtractor={(item: any) => item.id}  
-            renderItem={(item: any) => renderUserList(item)}
-            initialNumToRender={10}
-            onEndReached={handleLoadMore}
-            onEndReachedThreshold={0}
-          />
-        )}
-      </View>
-    </SafeAreaView>
+    <View style={styles.container}>
+      <SafeAreaView style={styles.container}>
+        <View style={styles.headerView}>
+          <TouchableOpacity>
+            <Image source={all_icons.menu} style={styles.menu} />
+          </TouchableOpacity>
+          <Text style={styles.headerTxt}>App Delight</Text>
+          <TouchableOpacity onPress={() => {props.navigation.navigate('favorite', {userData: selectedFavoriteUser})}}>
+            <Image source={all_icons.unfavorite} style={styles.menu} />
+          </TouchableOpacity>
+        </View>
+        <View style={styles.footerContainer}>
+          {loader ? (
+            <ActivityIndicator size={'large'} color={COLORS.gray} />
+          ) : (
+            <FlatList
+              data={userListArray}
+              keyExtractor={(item: any) => item.id}
+              renderItem={(item: any) => renderUserList(item)}
+              showsVerticalScrollIndicator={false}
+            />
+          )}
+        </View>
+      </SafeAreaView>
+    </View>
   );
 }
