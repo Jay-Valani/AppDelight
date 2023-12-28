@@ -32,9 +32,11 @@ export const styles = StyleSheet.create({
   productContainer: {
     marginHorizontal: scale(10),
     flexDirection: 'row',
+    marginTop: 30,
   },
   txtContainer: {
     flexDirection: 'column',
+    flex: 1
   },
   title: {
     fontSize: FontSize.FONT_13Px,
@@ -52,7 +54,7 @@ export const styles = StyleSheet.create({
     width: 20,
     transform: [{rotate: '90deg'}],
     justifyContent: 'flex-end',
-    marginLeft: scale(25),
+    // marginLeft: scale(25),
     marginTop: verticalScale(5),
   },
   modalViewContainer: {

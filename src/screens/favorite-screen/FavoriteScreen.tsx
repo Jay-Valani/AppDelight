@@ -6,6 +6,7 @@ import {
   Alert,
   TouchableOpacity,
   Modal,
+  FlatList,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {styles} from './FavoreiteScreen.styles';
@@ -18,11 +19,44 @@ export default function FavoriteScreen(props: any) {
   const route = useRoute();
   const userFavoriteItem = route.params?.userData;
 
+  useEffect(() => {
+    console.log('$$$$$$$$$$$', route.params);
+  }, []);
+
   const moreOptionModal = () => {
     return (
       <View style={{paddingBottom: 10}}>
         <TouchableOpacity onPress={() => {}}>
           <Text style={styles.modalTxt}>Remove from favorite</Text>
+        </TouchableOpacity>
+      </View>
+    );
+  };
+
+  const renderFavoriteItem = ({item}: any) => {
+    return (
+      <View style={styles.productContainer}>
+        <Image
+          source={{uri: item.image}}
+          style={styles.productImage}
+        />
+        <View style={styles.txtContainer}>
+          <Text style={styles.title}>
+            {item.title.length > 15
+              ? item.title.substring(0, 35) + '.....'
+              : item.title}
+          </Text>
+          <Text style={styles.desc}>
+            {item.description.length > 15
+              ? item.description.substring(0, 35) + '.....'
+              : item.description}
+          </Text>
+        </View>
+        <TouchableOpacity
+          onPress={() => {
+            setModalVisible(true);
+          }}>
+          <Image source={all_icons.more} style={styles.moreIcon} />
         </TouchableOpacity>
       </View>
     );
@@ -40,30 +74,12 @@ export default function FavoriteScreen(props: any) {
         </View>
       ) : (
         <View style={styles.footerContainer}>
-          <View style={styles.productContainer}>
-            <Image
-              source={{uri: userFavoriteItem.image}}
-              style={styles.productImage}
-            />
-            <View style={styles.txtContainer}>
-              <Text style={styles.title}>
-                {userFavoriteItem.title.length > 15
-                  ? userFavoriteItem.title.substring(0, 35) + '.....'
-                  : userFavoriteItem.title}
-              </Text>
-              <Text style={styles.desc}>
-                {userFavoriteItem.description.length > 15
-                  ? userFavoriteItem.description.substring(0, 35) + '.....'
-                  : userFavoriteItem.description}
-              </Text>
-            </View>
-            <TouchableOpacity
-              onPress={() => {
-                setModalVisible(true);
-              }}>
-              <Image source={all_icons.more} style={styles.moreIcon} />
-            </TouchableOpacity>
-          </View>
+          {/*  */}
+          <FlatList
+            data={userFavoriteItem}
+            keyExtractor={(item: any) => item.id}
+            renderItem={(item: any) => renderFavoriteItem(item)}
+          />
         </View>
       )}
       <Modal
