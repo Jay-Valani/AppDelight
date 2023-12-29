@@ -14,11 +14,14 @@ import {COLORS} from '../../../libs/Colors';
 import CustomButton from '../../../components/custom-button/CustomButton';
 import {emailRegex, passwordRegex} from '../../../constants/Regex';
 import auth from '@react-native-firebase/auth';
+import firestore from '@react-native-firebase/firestore';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function UserSignup(props: any) {
   const [emailInput, setEmailInput] = useState('');
   const [passwordInput, setPasswordInput] = useState('');
   const [confirmPasswordInput, setConfirmPasswordInput] = useState('');
+  const [result, setResult] = useState([]);
 
   const onEmailInputChangeTxt = (text: any) => {
     setEmailInput(text);
@@ -30,24 +33,43 @@ export default function UserSignup(props: any) {
     setConfirmPasswordInput(text);
   };
 
-  const firebaseDB = () => {
-    auth()
-      .createUserWithEmailAndPassword(emailInput, passwordInput)
-      .then(res => {
-        Platform.OS == 'android'
-          ? ToastAndroid.show(
-              'User logged in successfully!',
-              ToastAndroid.SHORT,
-            )
-          : Alert.alert('User logged in successfully!');
-        setEmailInput('');
-        setPasswordInput('');
-        setConfirmPasswordInput('');
-        props.navigation.navigate('dashboard');
-      })
-      .catch(error => {
-        Alert.alert('Please check with credentials!');
+  const firebaseDB = async () => {
+    try {
+      await auth()
+        .createUserWithEmailAndPassword(emailInput, passwordInput)
+        .then((res: any) => {
+          setResult(res);
+          console.log(
+            'created user firebase result res@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@',
+            result?.user?._user?.uid,
+          );
+        })
+        .catch(error => {
+          if (error.code === 'auth/email-already-in-use') {
+            Alert.alert('That email address is already in use!');
+          }
+          if (error.code === 'auth/invalid-email') {
+            Alert.alert('That email address is invalid!');
+          }
+          console.error(error);
+        });
+      firestore().collection('Users').doc(result?.user?._user?.uid).set({
+        email: emailInput,
+        uid: result?.user?._user?.uid,
+        status: 'online',
       });
+      await AsyncStorage.setItem("SignupUID",result?.user?._user?.uid)
+      Platform.OS == 'android'
+        ? ToastAndroid.show('User logged in successfully!', ToastAndroid.SHORT)
+        : Alert.alert('User logged in successfully!');
+      setEmailInput('');
+      setPasswordInput('');
+      setConfirmPasswordInput('');
+      props.navigation.navigate('dashboard');
+    } catch (error) {
+      Alert.alert('Something went wrong!');
+      console.log('error', error);
+    }
   };
 
   const onSignupBtnClick = () => {

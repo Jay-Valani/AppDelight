@@ -15,6 +15,7 @@ import {COLORS} from '../../../libs/Colors';
 import CustomButton from '../../../components/custom-button/CustomButton';
 import {emailRegex, passwordRegex} from '../../../constants/Regex';
 import auth from '@react-native-firebase/auth';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function UserLogin(props: any) {
   const [emailInput, setEmailInput] = useState('');
@@ -27,21 +28,29 @@ export default function UserLogin(props: any) {
     setPasswordInput(text);
   };
 
-  const loginFirebaseDB = () => {
-    auth()
-      .signInWithEmailAndPassword(emailInput, passwordInput)
-      .then(res => {
-        Platform.OS == 'android'
-          ? ToastAndroid.show(
-              'User signed in successfully!',
-              ToastAndroid.SHORT,
-            )
-          : Alert.alert('User signed in successfully!');
-        setEmailInput('');
-        setPasswordInput('');
-        props.navigation.navigate('dashboard');
-      })
-      .catch(error => console.error('Error!', error));
+  const loginFirebaseDB = async () => {
+    try {
+      const result = await auth()
+        .signInWithEmailAndPassword(emailInput, passwordInput)
+        .then(async res => {
+          console.log('result', res?.user?.uid);
+          await AsyncStorage.setItem('USER', res?.user?.uid);
+
+          Platform.OS == 'android'
+            ? ToastAndroid.show(
+                'User signed in successfully!',
+                ToastAndroid.SHORT,
+              )
+            : Alert.alert('User signed in successfully!');
+          setEmailInput('');
+          setPasswordInput('');
+          props.navigation.navigate('dashboard');
+        })
+        .catch(error => console.error('Error!', error));
+    } catch (error) {
+      Alert.alert('Something went wrong!');
+      console.log('error', error);
+    }
   };
 
   const onLoginBtnClick = () => {

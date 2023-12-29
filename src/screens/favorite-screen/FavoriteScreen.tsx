@@ -7,36 +7,89 @@ import {
   TouchableOpacity,
   Modal,
   FlatList,
+  ActivityIndicator,
 } from 'react-native';
 import React, {useEffect, useState} from 'react';
 import {styles} from './FavoreiteScreen.styles';
 import {useRoute} from '@react-navigation/native';
 import CustomHeader from '../../components/custom-header/CustomHeader';
 import {all_icons} from '../../assets/images';
+import AsyncStorage from '@react-native-async-storage/async-storage';
+import firestore, {firebase} from '@react-native-firebase/firestore';
+import {COLORS} from '../../libs/Colors';
 
 export default function FavoriteScreen(props: any) {
   const [modalVisible, setModalVisible] = useState(false);
-  const [storeId, setStoreID] = useState('')
+  const [storeId, setStoreID] = useState('');
+  const [loader, setLoader] = useState(false);
+  const [userFavoriteItem, setUserFavoriteItem] = useState([]);
   const route = useRoute();
-  const userFavoriteItem = route.params?.userData;
+  // const userFavoriteItem = route.params?.userData;
+  const userListing: any = [];
 
   useEffect(() => {
-    console.log('$$$$$$$$$$$', userFavoriteItem);
+    console.log('result$$$$$$$$$$');
+
+    getData();
   }, []);
 
-  const removeFavoriteItem = () => {
-    console.log("GGGGGGGGGGG",storeId.id);
-    
-    userFavoriteItem.map((obj:any) => {
-      console.log("objjjj",obj.id === storeId.id);
-      if(obj.id === storeId.id) {
-        userFavoriteItem.pop(storeId)
-        setStoreID('')
-        setModalVisible(false)
-      }
-    })
-    
-  }
+  const getData = async () => {
+    setLoader(true);
+    const loginUserToken: any = await AsyncStorage.getItem('USER');
+    const uid: any = await AsyncStorage.getItem('SignupUID');
+    const docid: any =
+      uid > loginUserToken
+        ? loginUserToken + '-' + uid
+        : uid + '-' + loginUserToken;
+    try {
+      const result = firestore()
+        .collection('Favorite')
+        .doc(docid)
+        .collection('FavoriteItem')
+        .get();
+      console.log('result^^^^^^^^^^', (await result).docs);
+      (await result).docs.map(res => {
+        const userData: any = res.data();
+        console.log('result###########', userData);
+
+        userListing.push(userData);
+        setUserFavoriteItem(userListing);
+        console.log('result!!!!!!!', userData, userListing, userFavoriteItem);
+        setLoader(false);
+      });
+    } catch (error) {
+      Alert.alert('Something went wrong!');
+      console.log('error', error);
+    }
+  };
+
+  const removeFavoriteItem = async () => {
+    const loginUserToken: any = await AsyncStorage.getItem('USER');
+    const uid: any = await AsyncStorage.getItem('SignupUID');
+    const docid: any =
+      uid > loginUserToken
+        ? loginUserToken + '-' + uid
+        : uid + '-' + loginUserToken;
+
+    try {
+      const result = firestore()
+        .collection('Favorite')
+        .doc(docid)
+        .collection('FavoriteItem')
+        .where('id', '==', storeId)
+        .get()
+        .then(querySnapshot => {
+          querySnapshot.forEach(function (doc) {
+            doc.ref.delete();
+          });
+          setModalVisible(false);
+          getData();
+        });
+    } catch (error) {
+      Alert.alert('Something went wrong!');
+      console.log('error', error);
+    }
+  };
 
   const moreOptionModal = () => {
     return (
@@ -49,30 +102,27 @@ export default function FavoriteScreen(props: any) {
   };
 
   const renderFavoriteItem = ({item}: any) => {
-    console.log("item^^^^^^^^",item);
-    
+    console.log('item^^^^^^^^', item);
+
     return (
       <View style={styles.productContainer}>
-        <Image
-          source={{uri: item.image}}
-          style={styles.productImage}
-        />
+        <Image source={{uri: item?.image}} style={styles.productImage} />
         <View style={styles.txtContainer}>
           <Text style={styles.title}>
-            {item.title.length > 15
-              ? item.title.substring(0, 35) + '.....'
-              : item.title}
+            {item?.title.length > 15
+              ? item?.title.substring(0, 35) + '.....'
+              : item?.title}
           </Text>
           <Text style={styles.desc}>
-            {item.description.length > 15
-              ? item.description.substring(0, 35) + '.....'
-              : item.description}
+            {item?.description.length > 15
+              ? item?.description.substring(0, 35) + '.....'
+              : item?.description}
           </Text>
         </View>
         <TouchableOpacity
           onPress={() => {
             setModalVisible(true);
-            setStoreID(item)
+            setStoreID(item?.id);
           }}>
           <Image source={all_icons.more} style={styles.moreIcon} />
         </TouchableOpacity>
@@ -84,21 +134,26 @@ export default function FavoriteScreen(props: any) {
     <View style={styles.container}>
       <CustomHeader
         title="Favorite Screen"
-        arrow_left={() => props.navigation.goBack()}
+        arrow_left={() => props.navigation.navigate('dashboard')}
       />
-      {userFavoriteItem.length === 0 ? (
-        <View style={styles.errorContainer}>
-          <Text style={styles.errorMsg}>No data found</Text>
-        </View>
-      ) : (
-        <View style={styles.footerContainer}>
+      <View style={styles.footerContainer}>
+        {loader ? (
+          <ActivityIndicator size={'large'} color={COLORS.gray} />
+        ) : (
           <FlatList
             data={userFavoriteItem}
             keyExtractor={(item: any) => item.id}
             renderItem={(item: any) => renderFavoriteItem(item)}
+            ListEmptyComponent={() => {
+              return (
+                <View style={styles.errorContainer}>
+                  <Text style={styles.errorMsg}>No data found</Text>
+                </View>
+              );
+            }}
           />
-        </View>
-      )}
+        )}
+      </View>
       <Modal
         animationType="slide"
         transparent={true}

@@ -14,16 +14,19 @@ import {styles} from './DashboardScreen.styles';
 import {all_icons} from '../../assets/images';
 import {COLORS} from '../../libs/Colors';
 import firestore, {firebase} from '@react-native-firebase/firestore';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function DashboardScreen(props: any) {
   const [userListArray, setUserListArray] = useState([]);
   const [loader, setLoader] = useState(false);
-  const [favorite, setFavorite] = useState('');
+  const [isFavorite, setIsFavorite] = useState('');
+  const [id, setId] = useState('');
   const [selectedFavoriteUser, setSelectedFavoriteUser] = useState([]);
   let selectedArray: any = [];
 
   useEffect(() => {
     userListAPi();
+    getUserData();
   }, []);
 
   const userListAPi = async () => {
@@ -39,47 +42,89 @@ export default function DashboardScreen(props: any) {
       });
   };
 
-  const selectedUserList = (item: any) => {
-    const selectedId = userListArray.findIndex((x: any) => {
-      console.log("ccccccc",x?.id , item.id);
-      x?.id === item.id;
-    });
-    if (selectedId === -1) {
-        selectedArray.push(item);
-    } else {
-      handleRemoveItem(item);
+  const getUserData = async () => {
+    const loginUserToken: any = await AsyncStorage.getItem('USER');
+    const uid: any = await AsyncStorage.getItem('SignupUID');
+    const docid: any =
+      uid > loginUserToken
+        ? loginUserToken + '-' + uid
+        : uid + '-' + loginUserToken;
+
+    try {
+      const querySanp = await firestore()
+        .collection('Favorite')
+        .doc(docid)
+        .collection('FavoriteItem')
+        .orderBy('isFavorite')
+        .get();
+      setSelectedFavoriteUser(querySanp?.docs);
+
+      querySanp.docs.map(docSnap => {
+        console.log('doc snap', docSnap?._data);
+        userListArray.some(mainItem => mainItem?.id === docSnap?._data?.id);
+      });
+    } catch (error) {
+      console.log('error', error);
+      // Alert.alert('Error', error);
     }
-    console.log('@@@@@@@@@@@@', selectedArray);
   };
 
-  const handleRemoveItem = (item: any) => {
-    userListArray.forEach((item: any) => {
-      const removeItem = userListArray.findIndex((index: any) => {
-        index?.id === item.id;
-      });
-      if (removeItem == -1) {
-        // setSelectedFavoriteUser(item);
-        selectedArray.splice(removeItem, 1);
-        console.log('&&&&&&&&&&&&&&&', selectedFavoriteUser);
-      }
-    });
+  const selectedUserListFirebase = async (item: any) => {
+    console.log('itemsssss', item);
+    const loginUserToken: any = await AsyncStorage.getItem('USER');
+    const uid: any = await AsyncStorage.getItem('SignupUID');
+    const docid: any =
+      uid > loginUserToken
+        ? loginUserToken + '-' + uid
+        : uid + '-' + loginUserToken;
+
+    try {
+      const result = firestore()
+        .collection('Favorite')
+        .doc(docid)
+        .collection('FavoriteItem')
+        .add({
+          id: item.id,
+          image: item.image,
+          title: item.title,
+          description: item.description,
+          isFavorite: true,
+        })
+        .catch(error => {
+          console.log('error', error);
+          Alert.alert('Error', error);
+        });
+
+      console.log(
+        'resultt----->',
+        await firestore()
+          .collection('Favorite')
+          .doc(docid)
+          .collection('FavoriteItem'),
+      );
+
+      getUserData();
+    } catch (error) {
+      Alert.alert('Something went wrong!');
+      console.log('error', error);
+    }
   };
 
   const renderUserList = ({item}: any) => {
+    let isFavorite = selectedFavoriteUser.some(obj => obj._data.id === item.id);
+    console.log("result#########",isFavorite);
+    
+
     return (
       <View style={styles.listContainer}>
         <View style={styles.imageComponent}>
           <Image source={{uri: item.image}} style={styles.productImage} />
           <TouchableOpacity
             onPress={() => {
-              selectedUserList(item);
+              selectedUserListFirebase(item);
             }}>
             <Image
-              source={
-                item.id === selectedArray.id
-                  ? all_icons.favorite
-                  : all_icons.unfavorite
-              }
+              source={isFavorite ? all_icons.favorite : all_icons.unfavorite}
               style={styles.favoriteIcon}
             />
           </TouchableOpacity>
@@ -104,15 +149,10 @@ export default function DashboardScreen(props: any) {
           <TouchableOpacity
             onPress={() => {
               props.navigation.navigate('favorite', {
-                userData: selectedArray,
+                userData: selectedFavoriteUser,
               });
             }}>
-            <Image
-              source={
-                selectedFavoriteUser ? all_icons.unfavorite : all_icons.favorite
-              }
-              style={styles.menu}
-            />
+            <Image source={all_icons.favorite} style={styles.menu} />
           </TouchableOpacity>
         </View>
         <View style={styles.footerContainer}>
