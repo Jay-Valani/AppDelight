@@ -58,7 +58,7 @@ export default function UserSignup(props: any) {
         uid: result?.user?._user?.uid,
         status: 'online',
       });
-      await AsyncStorage.setItem("SignupUID",result?.user?._user?.uid)
+      await AsyncStorage.setItem('SignupUID', result?.user?._user?.uid);
       Platform.OS == 'android'
         ? ToastAndroid.show('User logged in successfully!', ToastAndroid.SHORT)
         : Alert.alert('User logged in successfully!');

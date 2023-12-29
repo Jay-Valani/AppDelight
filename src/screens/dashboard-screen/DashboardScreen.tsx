@@ -112,8 +112,7 @@ export default function DashboardScreen(props: any) {
 
   const renderUserList = ({item}: any) => {
     let isFavorite = selectedFavoriteUser.some(obj => obj._data.id === item.id);
-    console.log("result#########",isFavorite);
-    
+    console.log('result#########', isFavorite);
 
     return (
       <View style={styles.listContainer}>

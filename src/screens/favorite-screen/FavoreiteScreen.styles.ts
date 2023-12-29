@@ -36,7 +36,7 @@ export const styles = StyleSheet.create({
   },
   txtContainer: {
     flexDirection: 'column',
-    flex: 1
+    flex: 1,
   },
   title: {
     fontSize: FontSize.FONT_13Px,
@@ -72,5 +72,5 @@ export const styles = StyleSheet.create({
     fontSize: FontSize.FONT_16Px,
     fontFamily: FONTS.OpenSansSemiBold,
     color: COLORS.black,
-  }
+  },
 });

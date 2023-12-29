@@ -1,5 +1,5 @@
-import { Text, StyleSheet, View } from 'react-native'
-import React, { Component } from 'react'
+import {Text, StyleSheet, View} from 'react-native';
+import React, {Component} from 'react';
 
 export default class SplashScreen extends Component {
   render() {
@@ -7,8 +7,8 @@ export default class SplashScreen extends Component {
       <View>
         <Text>SplashScreen</Text>
       </View>
-    )
+    );
   }
 }
 
-const styles = StyleSheet.create({})
+const styles = StyleSheet.create({});

@@ -24,11 +24,11 @@ export const styles = StyleSheet.create({
     color: COLORS.black,
     textAlign: 'center',
     marginRight: scale(30),
-    marginBottom: verticalScale(8)
+    marginBottom: verticalScale(8),
   },
   footerContainer: {
     flex: 1,
-    backgroundColor: COLORS.offWhite
+    backgroundColor: COLORS.offWhite,
   },
   listContainer: {
     marginHorizontal: scale(24),
@@ -43,12 +43,12 @@ export const styles = StyleSheet.create({
     elevation: 5,
     backgroundColor: COLORS.white,
     padding: 10,
-    borderRadius: 10
+    borderRadius: 10,
   },
   imageComponent: {
-    flexDirection: "row",
+    flexDirection: 'row',
     flex: 1,
-    justifyContent: 'space-between'
+    justifyContent: 'space-between',
   },
   productImage: {
     height: 200,
@@ -57,12 +57,12 @@ export const styles = StyleSheet.create({
     alignSelf: 'center',
     justifyContent: 'center',
     flex: 1,
-    marginLeft: scale(10)
+    marginLeft: scale(10),
   },
   favoriteIcon: {
     height: 25,
     width: 25,
-    justifyContent: "flex-end",
+    justifyContent: 'flex-end',
     marginTop: verticalScale(10),
     right: scale(10),
   },
